@@ -48,10 +48,16 @@
       list.appendChild(button2);
       button2.textContent = 'Delete';
       span.textContent = currentInput;
+      //
+      button2.addEventListener("click", deleteItem);
+      function deleteItem() {
+        button2.remove();
+        span.remove();
+        listItem.remove();
+      }
     }
-    button2.addEventListener("click", deleteItem);
-    function deleteItem() {
-      
+
+
 
 
 
