@@ -1,50 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Loops: Task 2</title>
-    <style>
-      p {
-        color: purple;
-        margin: 0.5em 0;
-      }
 
-      * {
-        box-sizing: border-box;
-      }
-    </style>
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Loops: Task 2</title>
+  <style>
+    p {
+      color: purple;
+      margin: 0.5em 0;
+    }
 
-  <body>
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
 
-    <section class="preview">
+<body>
+
+  <section class="preview">
 
 
 
-    </section>
+  </section>
 
-  </body>
-  <script>
-    const name = 'Mustafa';
-    const para = document.createElement('p');
+</body>
+<script>
+  const name = 'Mustafa';
+  const para = document.createElement('p');
 
-    const phonebook = [
-      { name : 'Chris', number : '1549' },
-      { name : 'Li Kang', number : '9634' },
-      { name : 'Anne', number : '9065' },
-      { name : 'Francesca', number : '3001' },
-      { name : 'Mustafa', number : '6888' },
-      { name : 'Tina', number : '4312' },
-      { name : 'Bert', number : '7780' },
-      { name : 'Jada', number : '2282' },
-    ]
+  const phonebook = [
+    { name: 'Chris', number: '1549' },
+    { name: 'Li Kang', number: '9634' },
+    { name: 'Anne', number: '9065' },
+    { name: 'Francesca', number: '3001' },
+    { name: 'Mustafa', number: '6888' },
+    { name: 'Tina', number: '4312' },
+    { name: 'Bert', number: '7780' },
+    { name: 'Jada', number: '2282' },
+  ]
 
-    // Add your code here
+  // Add your code here
 
-    // Don't edit the code below here!
-    const section = document.querySelector('section');
-    section.appendChild(para);
-  </script>
+  // given a name (variable at the top)
+  // search the phonebook array for the name
+
+  //    (use while loop just for practice, would pref a (for each))
+  // while loop: how will the loop end? (sentinel):
+  let keepGoing = true; // taught by Andy Harris
+  phonebookLength = Object.keys(phonebook).length; 
+
+  // what will change on each iteration?
+  let index = 0; 
+  const lastPhonebookIndex = phonebookLength - 1;
+
+  while (keepGoing) {
+    //compare the given-name with currently viewed phonebook entry
+    let currentName = phonebook[index].name;
+    // if the searched name matches the entry name
+    if (currentName == name) {
+      // output the name + phone number into a paragraph
+      console.log("name matches!, printing to paragraph");
+      para.textContent = phonebook[index].name + ":"
+          + phonebook[index].number;
+      keepGoing = false; // exit the loop
+    }
+    //avoid infinite loop by:
+    //stopping the search if the last phone-book entry is reached
+    else if (index == lastPhonebookIndex) {
+      console.log("reached end of phone book, stopping search");
+      keepGoing = false; // exit the loop
+    }
+    else {
+    //check the next name in the phone book, in the next loop
+      ++index;
+    }
+  }//end of while loop
+
+  // Don't edit the code below here!
+  const section = document.querySelector('section');
+  section.appendChild(para);
+</script>
 
 </html>
