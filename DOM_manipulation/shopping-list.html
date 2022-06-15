@@ -32,36 +32,38 @@
   </ul>
 
   <script>
+    //something I don't quite understand about javascript
+    //each addItem() call creates new objects, but these
+    //objects remain on the page, and I can create more with
+    //the very same variable names? and then even delete an 
+    //old one? How does that work?
     const list = document.querySelector('ul');
     const input = document.querySelector('input');
     const button = document.querySelector('button');
     button.addEventListener("click", addItem);
+    input.focus();
     function addItem() {
+      input.focus();
       const currentInput = input.value;
       input.value = '';
       const listItem = document.createElement('li');
       //listItem.textContent = 'We hope you enjoyed the ride.';
       list.appendChild(listItem);
       const span = document.createElement('span');
-      list.appendChild(span);
+      listItem.appendChild(span);
       const button2 = document.createElement('button');
-      list.appendChild(button2);
+      listItem.appendChild(button2);
       button2.textContent = 'Delete';
       span.textContent = currentInput;
-      //
+      //delete if clicked
       button2.addEventListener("click", deleteItem);
       function deleteItem() {
         button2.remove();
         span.remove();
         listItem.remove();
+        input.focus();
       }
     }
-
-
-
-
-
-
   </script>
 </body>
 
