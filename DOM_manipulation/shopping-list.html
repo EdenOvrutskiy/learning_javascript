@@ -62,18 +62,19 @@
       const listItem = document.createElement('li');
       //add new list item as a child to the list
       list.appendChild(listItem);
-      //create a span element to contain the list-item text
+      //create a span element to contain the list-item's text
       const listItemText = document.createElement('span');
-      //add new list-item's text to list-item element
+      //nest new list-item's text element in list-item element
       listItem.appendChild(listItemText);
+      //turn the user's editable input-text into a static list-item
+      listItemText.textContent = currentInput;
+      
       //create a deletion button
       const deleteButton = document.createElement('button');
       //append new deletion button alongside list-item
       listItem.appendChild(deleteButton);
       //label the button as 'Delete'
       deleteButton.textContent = 'Delete';
-      //turn the user's editable input-text into a static list-item
-      listItemText.textContent = currentInput;
       //cause the delete button to remove a list-item,
       //  it's text and delete button from the page when clicked
       deleteButton.addEventListener("click", deleteItem);
